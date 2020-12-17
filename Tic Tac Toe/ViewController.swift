@@ -21,12 +21,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var button7: UIButton!
     @IBOutlet weak var button8: UIButton!
     @IBOutlet weak var button9: UIButton!
-    var positions = [Int]()
-    var currentPlayer = 1
-    var win = false
-    var currentRound = 1
-    var color1 : UIColor = UIColor(red: 0.0, green: 0.3, blue: 0.4, alpha: 1.0)
-    var color2 : UIColor = UIColor(red: 0.4, green: 0.0, blue: 0.2, alpha: 1.0)
+    
+    
+    var game = Game()
     
     
     override func viewDidLoad() {
@@ -34,109 +31,100 @@ class ViewController: UIViewController {
     
         labelp2.transform = labelp2.transform.rotated(by: .pi)
         
-        for _ in 1...9 {
-            positions.append(0)
-        }
+        
 
-        labelp1.text = "Your turn"
-        labelp2.text = "Player 2"
+        setLabels()
         
         
-    }
-    
-    func getColor() -> UIColor {
-        if currentPlayer == 1 {
-            return color1
-            
-        }else{
-            return color2
-            
-        }
-    }
-    
-    func nextPlayer() {
-        currentRound += 1
-        if currentPlayer == 2 {
-            currentPlayer = 1
-        }else{
-            currentPlayer += 1
-        }
-        //wait for next input
-    }
-    
-    func gameWon() {
-        print("Player \(currentPlayer) won!")
+        
+        
     }
     
 
-    func checkForWin() {
-        let cp = currentPlayer
-        if  positions[0] == cp && positions[1] == cp && positions[2] == cp {
-            win = true
-        }else if positions[3] == cp && positions[4] == cp && positions[5] == cp {
-            win = true
-        }else if positions[6] == cp && positions[7] == cp && positions[8] == cp {
-            win = true
-        }else if positions[0] == cp && positions[3] == cp && positions[6] == cp {
-            win = true
-        }else if positions[1] == cp && positions[4] == cp && positions[7] == cp {
-            win = true
-        }else if positions[2] == cp && positions[5] == cp && positions[8] == cp {
-            win = true
-        }else if positions[0] == cp && positions[4] == cp && positions[8] == cp {
-            win = true
-        }else if positions[2] == cp && positions[4] == cp && positions[6] == cp {
-            win = true
-        }
-        
-        if win == false && currentRound < 9 {
-            nextPlayer()
-        }else if win == false && currentRound == 9{
-            print("No winner")
-        
-        }else{
-            gameWon()
-        }
-    }
+    
+
 
     
     
     
     @IBAction func buttonPress(_ sender: UIButton) {
-        sender.alpha = 0.7
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            sender.alpha = 1
-        }
+        
+        var position = 10
         
         switch sender {
         case button1:
-            positions[0] = currentPlayer
+            position = 0
         case button2:
-            positions[1] = currentPlayer
+            position = 1
         case button3:
-            positions[2] = currentPlayer
+            position = 2
         case button4:
-            positions[3] = currentPlayer
+            position = 3
         case button5:
-            positions[4] = currentPlayer
+            position = 4
         case button6:
-            positions[5] = currentPlayer
+            position = 5
         case button7:
-            positions[6] = currentPlayer
+            position = 6
         case button8:
-            positions[7] = currentPlayer
+            position = 7
         case button9:
-            positions[8] = currentPlayer
+            position = 8
         default:
             do {}
         }
         
         
-        
-        sender.isUserInteractionEnabled = false
-        sender.backgroundColor = getColor()
-        checkForWin()
+        if game.makeAMove(position: position) == true {
+            sender.alpha = 0.7
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                sender.alpha = 1
+            }
+            sender.isUserInteractionEnabled = false
+            sender.backgroundColor = getPlayerColor()
+            
+            if game.checkForWin() == true {
+                labelp1.text = "\(game.currentPlayer.name) won!"
+                labelp2.text = "\(game.currentPlayer.name) won!"
+                
+            }else if game.checkForDraw() == true{
+                labelp1.text = "Draw!"
+                labelp2.text = "Draw!"
+                
+            }else{
+                game.nextPlayer()
+                setLabels()
+            }
+            
+            
+        }
     
+    }
+    
+    
+    func setLabels() {
+        if game.player1.nr == game.currentPlayer.nr {
+            labelp1.text = "Your turn!"
+        }else{
+            labelp1.text = game.player1.name
+        }
+        
+        if game.player2.nr == game.currentPlayer.nr {
+            labelp2.text = "Your turn!"
+        }else{
+            labelp2.text = game.player2.name
+        }
+        
+    }
+    
+    
+    func getPlayerColor() -> UIColor {
+        let player = game.currentPlayer
+        let color = UIColor(red: CGFloat(player.color[0]),
+                            green: CGFloat(player.color[1]),
+                            blue: CGFloat(player.color[2]),
+                            alpha: CGFloat(player.color[3]))
+        return color
     }
     
     
