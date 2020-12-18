@@ -25,11 +25,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var p1Name: UILabel!
     @IBOutlet weak var p1Wins: UILabel!
     @IBOutlet weak var p1PlayAgain: UIButton!
+    @IBOutlet weak var p1Draws: UILabel!
     @IBOutlet weak var p2Background: UIView!
     @IBOutlet weak var p2Label: UILabel!
     @IBOutlet weak var p2Name: UILabel!
     @IBOutlet weak var p2Wins: UILabel!
     @IBOutlet weak var p2PlayAgain: UIButton!
+    @IBOutlet weak var p2Draws: UILabel!
     
     var game = Game()
     
@@ -37,7 +39,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        p1PlayAgain.layer.cornerRadius = 8
+        p2PlayAgain.layer.cornerRadius = 8
         p2Background.transform = p2Background.transform.rotated(by: .pi)
+        
         
         setLabels()
         
@@ -86,24 +91,22 @@ class ViewController: UIViewController {
             sender.backgroundColor = getPlayerColor(player: game.currentPlayer)
             
             if game.checkForWin() == true {
-                p1Label.font = UIFont.systemFont(ofSize: 40.0)
-                p2Label.font = UIFont.systemFont(ofSize: 40.0)
                 p1Label.text = "\(game.currentPlayer.name) won!"
                 p2Label.text = "\(game.currentPlayer.name) won!"
                 p1Wins.text = "\(game.player1.wins) wins"
-                print(game.player1.wins)
-                print(game.player2.wins)
                 p2Wins.text = "\(game.player2.wins) wins"
-                disableButtons()
                 p1PlayAgain.isHidden = false
-                
                 p2PlayAgain.isHidden = false
+                disableButtons()
                 
             }else if game.checkForDraw() == true{
-                p1Label.font = UIFont.systemFont(ofSize: 40.0)
-                p2Label.font = UIFont.systemFont(ofSize: 40.0)
                 p1Label.text = "Draw!"
                 p2Label.text = "Draw!"
+                p1PlayAgain.isHidden = false
+                p2PlayAgain.isHidden = false
+                p1Draws.text = "\(game.player1.draws) Draws"
+                p2Draws.text = "\(game.player2.draws) Draws"
+                disableButtons()
                 
             }else{
                 game.nextPlayer()
@@ -111,6 +114,8 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    
     
     
     func disableButtons() {
@@ -152,21 +157,19 @@ class ViewController: UIViewController {
         p1Background.backgroundColor = getPlayerColor(player: game.player1)
         p1Name.text = game.player1.name
         p1Wins.text = "\(game.player1.wins) wins"
+        p1Draws.text = "\(game.player1.draws) Draws"
         p1PlayAgain.setTitleColor(getPlayerColor(player: game.player1), for: UIControl.State.normal)
         
         p2Background.backgroundColor = getPlayerColor(player: game.player2)
         p2Name.text = game.player2.name
         p2Wins.text = "\(game.player2.wins) wins"
+        p2Draws.text = "\(game.player2.draws) Draws"
         p2PlayAgain.setTitleColor(getPlayerColor(player: game.player2), for: UIControl.State.normal)
         if game.player1.nr == game.currentPlayer.nr {
-            p1Label.font = UIFont.systemFont(ofSize: 40.0)
             p1Label.text = "Your turn!"
-            p2Label.font = UIFont.systemFont(ofSize: 20.0)
-            p2Label.text = "Please wait for your turn"
+            p2Label.text = "Opponent's turn"
         }else{
-            p1Label.font = UIFont.systemFont(ofSize: 20.0)
-            p1Label.text = "Please wait for your turn"
-            p2Label.font = UIFont.systemFont(ofSize: 40.0)
+            p1Label.text = "Opponent's turn"
             p2Label.text = "Your turn!"
         }
         

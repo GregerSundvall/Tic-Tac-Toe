@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct Player {
+class Player {
     var name : String
     var nr : Int
     var color : [Float]
     var wins = 0
+    var draws = 0
     var positionsOwned = [Int]()
     
     

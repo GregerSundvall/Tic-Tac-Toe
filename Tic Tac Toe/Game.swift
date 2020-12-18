@@ -113,6 +113,8 @@ class Game {
     
     func checkForDraw() -> Bool {
         if currentTurn == 9{
+            player1.draws += 1
+            player2.draws += 1
         return true
         }else{
             return false
