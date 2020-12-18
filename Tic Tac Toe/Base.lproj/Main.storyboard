@@ -9,6 +9,81 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="2jf-e2-4y1">
+            <objects>
+                <viewController id="BAp-2D-nJ0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uhm-K8-dqH">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Ve5-07-R3J">
+                                <rect key="frame" x="15" y="59" width="360" height="736"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXb-vT-v0x">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="343"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aeS-Cg-elj">
+                                                <rect key="frame" x="105" y="40" width="150" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="avz-Hj-piw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <constraints>
+                                            <constraint firstItem="aeS-Cg-elj" firstAttribute="centerX" secondItem="KXb-vT-v0x" secondAttribute="centerX" id="P4K-72-DnU"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIF-pj-OTc">
+                                        <rect key="frame" x="0.0" y="393" width="360" height="343"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iiw-n6-H4L">
+                                                <rect key="frame" x="105" y="42" width="150" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="usW-Bc-pqD"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <constraints>
+                                            <constraint firstItem="Iiw-n6-H4L" firstAttribute="centerX" secondItem="AIF-pj-OTc" secondAttribute="centerX" id="LVc-45-qXL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="KXb-vT-v0x" firstAttribute="leading" secondItem="Ve5-07-R3J" secondAttribute="leading" id="1R5-U3-ZIO"/>
+                                    <constraint firstItem="AIF-pj-OTc" firstAttribute="leading" secondItem="Ve5-07-R3J" secondAttribute="leading" id="2Uv-OC-ULe"/>
+                                    <constraint firstAttribute="trailing" secondItem="AIF-pj-OTc" secondAttribute="trailing" id="S9g-hQ-dAN"/>
+                                    <constraint firstAttribute="trailing" secondItem="KXb-vT-v0x" secondAttribute="trailing" id="fKy-pH-fDc"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxg-jP-xTy">
+                                <rect key="frame" x="146.66666666666666" y="404" width="97" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Start game"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="07T-Ww-bRp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ve5-07-R3J" firstAttribute="top" secondItem="07T-Ww-bRp" secondAttribute="top" constant="15" id="NCA-Tv-nVb"/>
+                            <constraint firstItem="07T-Ww-bRp" firstAttribute="bottom" secondItem="Ve5-07-R3J" secondAttribute="bottom" constant="15" id="NRg-4W-Qj5"/>
+                            <constraint firstItem="xxg-jP-xTy" firstAttribute="centerY" secondItem="07T-Ww-bRp" secondAttribute="centerY" constant="-5" id="U5i-c2-EA9"/>
+                            <constraint firstItem="Ve5-07-R3J" firstAttribute="leading" secondItem="07T-Ww-bRp" secondAttribute="leading" constant="15" id="ZzS-Er-Zwp"/>
+                            <constraint firstItem="xxg-jP-xTy" firstAttribute="centerX" secondItem="07T-Ww-bRp" secondAttribute="centerX" id="dA1-Ti-LGB"/>
+                            <constraint firstItem="07T-Ww-bRp" firstAttribute="trailing" secondItem="Ve5-07-R3J" secondAttribute="trailing" constant="15" id="vLs-vA-8YE"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLj-Rj-FwY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-603.07692307692309" y="151.4218009478673"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tic_Tac_Toe" customModuleProvider="target" sceneMemberID="viewController">
