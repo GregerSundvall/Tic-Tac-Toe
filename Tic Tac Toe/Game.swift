@@ -22,7 +22,7 @@ class Game {
             board.append(0)
         }
         
-        player1 = Player(name: "Player 1", nr: 1, color: [0.0, 0.3, 0.4, 1.0], aI: false)
+        player1 = Player(name: "Player 1", nr: 1, color: [0.0, 0.3, 0.4, 1.0], aI: true)
         player2 = Player(name: "Player 2", nr: 2, color: [0.4, 0.0, 0.2, 1.0], aI: true)
         
         let randomInt = Int.random(in: 1...100)

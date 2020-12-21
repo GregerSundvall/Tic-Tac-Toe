@@ -17,6 +17,7 @@
 		559BCD532588E2B800543B1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559BCD512588E2B800543B1F /* LaunchScreen.storyboard */; };
 		559BCD5E2588E2B800543B1F /* Tic_Tac_ToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559BCD5D2588E2B800543B1F /* Tic_Tac_ToeTests.swift */; };
 		559BCD692588E2B800543B1F /* Tic_Tac_ToeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559BCD682588E2B800543B1F /* Tic_Tac_ToeUITests.swift */; };
+		559D14392590F37800B88FF8 /* PlayerSetupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559D14382590F37800B88FF8 /* PlayerSetupController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		559BCD642588E2B800543B1F /* Tic Tac ToeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tic Tac ToeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		559BCD682588E2B800543B1F /* Tic_Tac_ToeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tic_Tac_ToeUITests.swift; sourceTree = "<group>"; };
 		559BCD6A2588E2B800543B1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		559D14382590F37800B88FF8 /* PlayerSetupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSetupController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				557EFD5B258B599B0095D912 /* Game.swift */,
 				557EFD56258B554C0095D912 /* Player.swift */,
 				559BCD4C2588E2B600543B1F /* Main.storyboard */,
+				559D14382590F37800B88FF8 /* PlayerSetupController.swift */,
 				559BCD4F2588E2B800543B1F /* Assets.xcassets */,
 				559BCD512588E2B800543B1F /* LaunchScreen.storyboard */,
 				559BCD542588E2B800543B1F /* Info.plist */,
@@ -268,6 +271,7 @@
 				557EFD5C258B599B0095D912 /* Game.swift in Sources */,
 				559BCD4B2588E2B600543B1F /* ViewController.swift in Sources */,
 				559BCD472588E2B600543B1F /* AppDelegate.swift in Sources */,
+				559D14392590F37800B88FF8 /* PlayerSetupController.swift in Sources */,
 				559BCD492588E2B600543B1F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

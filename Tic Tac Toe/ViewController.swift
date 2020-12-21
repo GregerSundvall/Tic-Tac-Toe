@@ -53,8 +53,8 @@ class ViewController: UIViewController {
     }
     
     func letAIMakeAMove() {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        disableButtons()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.game.makeAIMove()
             self.setBoardButtons()
             self.checkForWinOrDraw()
@@ -97,13 +97,14 @@ class ViewController: UIViewController {
         }
         
         if game.makeAMove(position: position) == true {
-            
+            disableButtons()
             checkForWinOrDraw()
             
         }
     }
     
     func checkForWinOrDraw() {
+        setBoardButtons()
         if game.checkForWin() == true {
             p1Label.text = "\(game.currentPlayer.name) won!"
             p2Label.text = "\(game.currentPlayer.name) won!"
@@ -111,8 +112,6 @@ class ViewController: UIViewController {
             p2Wins.text = "\(game.player2.wins) wins"
             p1PlayAgain.isHidden = false
             p2PlayAgain.isHidden = false
-            setBoardButtons()
-            disableButtons()
             
         }else if game.checkForDraw() == true{
             p1Label.text = "Draw!"
@@ -121,13 +120,11 @@ class ViewController: UIViewController {
             p2PlayAgain.isHidden = false
             p1Draws.text = "\(game.player1.draws) Draws"
             p2Draws.text = "\(game.player2.draws) Draws"
-            setBoardButtons()
-            disableButtons()
             
         }else{
-            setBoardButtons()
             game.nextPlayer()
             setLabels()
+            enableNotUsedButtons()
             if game.currentPlayer.aI == true {
                 letAIMakeAMove()
             }
@@ -145,6 +142,23 @@ class ViewController: UIViewController {
         button7.isEnabled = false
         button8.isEnabled = false
         button9.isEnabled = false
+    }
+    
+    func enableNotUsedButtons() {
+        func enableAButtonIfNotUsed(value: Int, button: UIButton) {
+            if value == 0 {
+                button.isEnabled = true
+            }
+        }
+        enableAButtonIfNotUsed(value: game.board[0], button: button1)
+        enableAButtonIfNotUsed(value: game.board[1], button: button2)
+        enableAButtonIfNotUsed(value: game.board[2], button: button3)
+        enableAButtonIfNotUsed(value: game.board[3], button: button4)
+        enableAButtonIfNotUsed(value: game.board[4], button: button5)
+        enableAButtonIfNotUsed(value: game.board[5], button: button6)
+        enableAButtonIfNotUsed(value: game.board[6], button: button7)
+        enableAButtonIfNotUsed(value: game.board[7], button: button8)
+        enableAButtonIfNotUsed(value: game.board[8], button: button9)
     }
     
     func resetButtons() {
@@ -171,6 +185,22 @@ class ViewController: UIViewController {
     
     
     func setBoardButtons () {
+        func setAButton (value: Int, button: UIButton) {
+            let p1Color : UIColor = getPlayerColor(player: game.player1)
+            let p2Color : UIColor = getPlayerColor(player: game.player2)
+            if value == 0 {
+                button.backgroundColor = UIColor.systemGray5
+                button.isEnabled = true
+            }else if value == 1 {
+                button.backgroundColor = p1Color
+                button.isEnabled = false
+            }else if value == 2 {
+                button.backgroundColor = p2Color
+                button.isEnabled = false
+            }else{
+                button.backgroundColor = UIColor.red
+            }
+        }
         setAButton(value: game.board[0], button: button1)
         setAButton(value: game.board[1], button: button2)
         setAButton(value: game.board[2], button: button3)
@@ -180,25 +210,9 @@ class ViewController: UIViewController {
         setAButton(value: game.board[6], button: button7)
         setAButton(value: game.board[7], button: button8)
         setAButton(value: game.board[8], button: button9)
-        
     }
     
-    func setAButton (value: Int, button: UIButton) {
-        let p1Color : UIColor = getPlayerColor(player: game.player1)
-        let p2Color : UIColor = getPlayerColor(player: game.player2)
-        if value == 0 {
-            button.backgroundColor = UIColor.systemGray5
-            button.isEnabled = true
-        }else if value == 1 {
-            button.backgroundColor = p1Color
-            button.isEnabled = false
-        }else if value == 2 {
-            button.backgroundColor = p2Color
-            button.isEnabled = false
-        }else{
-            button.backgroundColor = UIColor.red
-        }
-    }
+    
     
     func setLabels() {
         p1Background.backgroundColor = getPlayerColor(player: game.player1)
