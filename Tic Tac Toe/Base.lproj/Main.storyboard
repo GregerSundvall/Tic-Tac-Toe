@@ -16,41 +16,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Ve5-07-R3J">
-                                <rect key="frame" x="15" y="59" width="360" height="736"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ve5-07-R3J">
+                                <rect key="frame" x="15" y="59" width="360" height="651"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXb-vT-v0x">
-                                        <rect key="frame" x="0.0" y="0.0" width="360" height="343"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="310.66666666666669"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aeS-Cg-elj">
-                                                <rect key="frame" x="105" y="40" width="150" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aeS-Cg-elj">
+                                                <rect key="frame" x="105" y="30" width="150" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="avz-Hj-piw"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="waj-Nb-hKZ">
+                                                <rect key="frame" x="116.66666666666666" y="94" width="127" height="32"/>
+                                                <segments>
+                                                    <segment title="Human"/>
+                                                    <segment title="AI"/>
+                                                </segments>
+                                            </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <constraints>
+                                            <constraint firstItem="waj-Nb-hKZ" firstAttribute="top" secondItem="aeS-Cg-elj" secondAttribute="bottom" constant="30" id="Lot-zk-cxj"/>
+                                            <constraint firstItem="aeS-Cg-elj" firstAttribute="top" secondItem="KXb-vT-v0x" secondAttribute="top" constant="30" id="Oj5-5D-97M"/>
                                             <constraint firstItem="aeS-Cg-elj" firstAttribute="centerX" secondItem="KXb-vT-v0x" secondAttribute="centerX" id="P4K-72-DnU"/>
+                                            <constraint firstItem="waj-Nb-hKZ" firstAttribute="centerX" secondItem="KXb-vT-v0x" secondAttribute="centerX" id="dPc-TD-Taz"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIF-pj-OTc">
-                                        <rect key="frame" x="0.0" y="393" width="360" height="343"/>
+                                        <rect key="frame" x="0.0" y="340.66666666666674" width="360" height="310.33333333333326"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iiw-n6-H4L">
-                                                <rect key="frame" x="105" y="42" width="150" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iiw-n6-H4L">
+                                                <rect key="frame" x="105" y="30" width="150" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="usW-Bc-pqD"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AJ6-8d-Hki">
+                                                <rect key="frame" x="116.66666666666666" y="94" width="127" height="32"/>
+                                                <segments>
+                                                    <segment title="Human"/>
+                                                    <segment title="AI"/>
+                                                </segments>
+                                            </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <constraints>
+                                            <constraint firstItem="AJ6-8d-Hki" firstAttribute="centerX" secondItem="AIF-pj-OTc" secondAttribute="centerX" id="Bof-cm-WRh"/>
                                             <constraint firstItem="Iiw-n6-H4L" firstAttribute="centerX" secondItem="AIF-pj-OTc" secondAttribute="centerX" id="LVc-45-qXL"/>
+                                            <constraint firstItem="Iiw-n6-H4L" firstAttribute="top" secondItem="AIF-pj-OTc" secondAttribute="top" constant="30" id="dt8-oy-KiK"/>
+                                            <constraint firstItem="AJ6-8d-Hki" firstAttribute="top" secondItem="Iiw-n6-H4L" secondAttribute="bottom" constant="30" id="rid-it-1mi"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -62,7 +82,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxg-jP-xTy">
-                                <rect key="frame" x="146.66666666666666" y="404" width="97" height="36"/>
+                                <rect key="frame" x="146.66666666666666" y="744" width="97" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Start game"/>
                             </button>
@@ -70,9 +90,9 @@
                         <viewLayoutGuide key="safeArea" id="07T-Ww-bRp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="07T-Ww-bRp" firstAttribute="bottom" secondItem="xxg-jP-xTy" secondAttribute="bottom" constant="30" id="H5b-nX-LjL"/>
                             <constraint firstItem="Ve5-07-R3J" firstAttribute="top" secondItem="07T-Ww-bRp" secondAttribute="top" constant="15" id="NCA-Tv-nVb"/>
-                            <constraint firstItem="07T-Ww-bRp" firstAttribute="bottom" secondItem="Ve5-07-R3J" secondAttribute="bottom" constant="15" id="NRg-4W-Qj5"/>
-                            <constraint firstItem="xxg-jP-xTy" firstAttribute="centerY" secondItem="07T-Ww-bRp" secondAttribute="centerY" constant="-5" id="U5i-c2-EA9"/>
+                            <constraint firstItem="07T-Ww-bRp" firstAttribute="bottom" secondItem="Ve5-07-R3J" secondAttribute="bottom" constant="100" id="NRg-4W-Qj5"/>
                             <constraint firstItem="Ve5-07-R3J" firstAttribute="leading" secondItem="07T-Ww-bRp" secondAttribute="leading" constant="15" id="ZzS-Er-Zwp"/>
                             <constraint firstItem="xxg-jP-xTy" firstAttribute="centerX" secondItem="07T-Ww-bRp" secondAttribute="centerX" id="dA1-Ti-LGB"/>
                             <constraint firstItem="07T-Ww-bRp" firstAttribute="trailing" secondItem="Ve5-07-R3J" secondAttribute="trailing" constant="15" id="vLs-vA-8YE"/>
@@ -81,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLj-Rj-FwY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-603.07692307692309" y="151.4218009478673"/>
+            <point key="canvasLocation" x="-752" y="159"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
