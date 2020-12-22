@@ -36,6 +36,18 @@ class Game {
         
     }
     
+    func setupPlayer1(name: String, color: [Float], aI: Bool) {
+        player1.name = name
+        player1.color = color
+        player1.aI = aI
+    }
+    
+    func setupPlayer2(name: String, color: [Float], aI: Bool) {
+        player2.name = name
+        player2.color = color
+        player2.aI = aI
+    }
+    
     func anotherRound() {
         playAgain = 0
         board.removeAll()

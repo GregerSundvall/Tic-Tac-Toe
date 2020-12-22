@@ -33,16 +33,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var p2PlayAgain: UIButton!
     @IBOutlet weak var p2Draws: UILabel!
     
+    var recievedP1Name : String?
+    var recievedP1Ai : Bool?
+    var recievedP1Color : UIColor?
+    var recievedP2Name : String?
+    var recievedP2Ai : Bool?
+    var recievedP2Color : UIColor?
+    
     var game = Game()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        game.setupPlayer1(name: recievedP1Name ?? "Player 1",
+                          color: getColorFloats(color: recievedP1Color ?? UIColor.blue),
+                          aI: recievedP1Ai ?? true)
+        
+        game.setupPlayer2(name: recievedP2Name ?? "Player 2",
+                          color: getColorFloats(color: recievedP2Color ?? UIColor.red),
+                          aI: recievedP2Ai ?? true)
+        
         p1PlayAgain.layer.cornerRadius = 8
         p2PlayAgain.layer.cornerRadius = 8
+        if game.player2.aI == false {
         p2Background.transform = p2Background.transform.rotated(by: .pi)
-        
+        }
         
         setLabels()
         
@@ -50,6 +66,22 @@ class ViewController: UIViewController {
             letAIMakeAMove()
             
         }
+    }
+    
+    func getColorFloats(color: UIColor) -> [Float] {
+        
+            var red: CGFloat = 0
+            var green: CGFloat = 0
+            var blue: CGFloat = 0
+            var alpha: CGFloat = 0
+            color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+            var colorFloats = [Float]()
+            colorFloats.append(Float(red))
+            colorFloats.append(Float(green))
+            colorFloats.append(Float(blue))
+            colorFloats.append(Float(alpha))
+                                                                     
+            return colorFloats
     }
     
     func letAIMakeAMove() {
@@ -263,6 +295,16 @@ class ViewController: UIViewController {
             setLabels()
         }
         
+    }
+    
+    @IBAction func swipeFromLeftEdge(_ sender: UIScreenEdgePanGestureRecognizer) {
+        print("swipe")
+        performSegue(withIdentifier: "unwindBackToSetup", sender: self)
+    }
+    
+    @IBAction func backButton(_ sender: UIButton) {
+        print("Back button pressed")
+        performSegue(withIdentifier: "unwindBackToSetup", sender: self)
     }
     
 }
