@@ -14,23 +14,33 @@ class PlayerSetupController: UIViewController, UIColorPickerViewControllerDelega
     @IBOutlet weak var p2Name: UITextField!
     @IBOutlet weak var p2Selector: UISegmentedControl!
     @IBOutlet weak var p2ColorButton: UIButton!
-    
     @IBOutlet weak var p1Background: UIView!
     @IBOutlet weak var p1Name: UITextField!
     @IBOutlet weak var p1Selector: UISegmentedControl!
     @IBOutlet weak var p1ColorButton: UIButton!
+    @IBOutlet weak var startGameButton: UIButton!
     
     var whoOpenedColorPicker = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        p2Selector.selectedSegmentIndex = 1
+        p2Name.text = "AI"
+        
+        hideKeyboardOnTap()
+        
+        p1Name.autocapitalizationType = .words
+        p2Name.autocapitalizationType = .words
         p1ColorButton.layer.cornerRadius = 5
         p2ColorButton.layer.cornerRadius = 5
+        startGameButton.layer.cornerRadius = 5
         
         
         
     }
+    
+    
     
     
     
@@ -70,26 +80,45 @@ class PlayerSetupController: UIViewController, UIColorPickerViewControllerDelega
         if segue.identifier == "segueSetupToGame"{
             let destinationVC = segue.destination as! ViewController
             
-            destinationVC.recievedP1Name = p1Name.text ?? "Player 1"
-            destinationVC.recievedP1Color = p1Background.backgroundColor
+            
+            if let p1NameString = p1Name.text {
+                p1Name.text = p1NameString
+                if p1NameString.count == 0{
+                    p1Name.text = "Player one"
+                }
+                destinationVC.recievedP1Name = p1Name.text!
+            }
+            
+            if let p2NameString = p2Name.text {
+                p2Name.text = p2NameString
+                if p2NameString.count == 0{
+                    p2Name.text = "Player two"
+                }
+                destinationVC.recievedP2Name = p2Name.text!
+            }
+            
+            destinationVC.recievedP1Color = p1Background.backgroundColor!
             if p1Selector.selectedSegmentIndex == 0 {
             destinationVC.recievedP1Ai = false
             }else{
+                p1Name.text = "AI"
                 destinationVC.recievedP1Ai = true
             }
             
-            destinationVC.recievedP2Name = p2Name.text ?? "Player 2"
-            destinationVC.recievedP2Color = p2Background.backgroundColor
+            destinationVC.recievedP2Color = p2Background.backgroundColor!
             if p2Selector.selectedSegmentIndex == 0 {
             destinationVC.recievedP2Ai = false
             }else{
+                p2Name.text = "AI"
                 destinationVC.recievedP2Ai = true
             }
         }
     }
     
-    @IBAction func unwindToSetupView(segue: UIStoryboardSegue)
-    {}
+    @IBAction func unwindToSetupView(segue: UIStoryboardSegue) {
+        p1Name.text = ""
+        p2Name.text = ""
+    }
     
     
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
@@ -106,5 +135,16 @@ class PlayerSetupController: UIViewController, UIColorPickerViewControllerDelega
     
 }
    
+extension UIViewController {
+    func hideKeyboardOnTap() {
+        let tapGesture = UITapGestureRecognizer(target: self,
+                         action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+}
     
 

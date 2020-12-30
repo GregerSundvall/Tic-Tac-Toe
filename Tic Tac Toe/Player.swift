@@ -197,22 +197,20 @@ class Player {
                 //Start of failsafes
             }else if board[0] == 0 {
                 position = 0
-            }else if board[1] == 0 {
-                position = 1
             }else if board[2] == 0 {
                 position = 2
-            }else if board[3] == 0 {
-                position = 3
-            }else if board[4] == 0 {
-                position = 4
-            }else if board[5] == 0 {
-                position = 5
             }else if board[6] == 0 {
                 position = 6
-            }else if board[7] == 0 {
-                position = 7
             }else if board[8] == 0 {
                 position = 8
+            }else if board[1] == 0 {
+                position = 1
+            }else if board[3] == 0 {
+                position = 3
+            }else if board[5] == 0 {
+                position = 5
+            }else if board[7] == 0 {
+                position = 7
             }
             
         }

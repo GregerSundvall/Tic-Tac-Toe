@@ -33,26 +33,35 @@ class ViewController: UIViewController {
     @IBOutlet weak var p2PlayAgain: UIButton!
     @IBOutlet weak var p2Draws: UILabel!
     
-    var recievedP1Name : String?
-    var recievedP1Ai : Bool?
-    var recievedP1Color : UIColor?
-    var recievedP2Name : String?
-    var recievedP2Ai : Bool?
-    var recievedP2Color : UIColor?
+    var recievedP1Name = ""
+    var recievedP1Ai = false
+    var recievedP1Color = UIColor.red
+    var recievedP2Name = ""
+    var recievedP2Ai = false
+    var recievedP2Color = UIColor.blue
     
     var game = Game()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        game.setupPlayer1(name: recievedP1Name ?? "Player 1",
-                          color: getColorFloats(color: recievedP1Color ?? UIColor.blue),
-                          aI: recievedP1Ai ?? true)
         
-        game.setupPlayer2(name: recievedP2Name ?? "Player 2",
-                          color: getColorFloats(color: recievedP2Color ?? UIColor.red),
-                          aI: recievedP2Ai ?? true)
+        p1PlayAgain.isHidden = true
+        p2PlayAgain.isHidden = true
+        
+        if game.player2.aI == true {
+            p2Label.isHidden = true
+        }else{
+            p2Label.isHidden = false
+        }
+        
+        game.setupPlayer1(name: recievedP1Name,
+                          color: getColorFloats(color: recievedP1Color),
+                          aI: recievedP1Ai)
+        
+        game.setupPlayer2(name: recievedP2Name,
+                          color: getColorFloats(color: recievedP2Color),
+                          aI: recievedP2Ai)
         
         p1PlayAgain.layer.cornerRadius = 8
         p2PlayAgain.layer.cornerRadius = 8
@@ -67,6 +76,9 @@ class ViewController: UIViewController {
             
         }
     }
+    
+    
+    
     
     func getColorFloats(color: UIColor) -> [Float] {
         
@@ -95,8 +107,16 @@ class ViewController: UIViewController {
     }
     
     func anotherRound() {
+        print("another round run")
         game.anotherRound()
         setLabels()
+        //DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            if self.game.currentPlayer.aI == true {
+                self.letAIMakeAMove()
+            }
+        //}
+        
+        
         
     }
 
@@ -143,13 +163,17 @@ class ViewController: UIViewController {
             p1Wins.text = "\(game.player1.wins) wins"
             p2Wins.text = "\(game.player2.wins) wins"
             p1PlayAgain.isHidden = false
-            p2PlayAgain.isHidden = false
+            if game.player2.aI == false {
+                p2PlayAgain.isHidden = false
+            }
             
         }else if game.checkForDraw() == true{
             p1Label.text = "Draw!"
             p2Label.text = "Draw!"
             p1PlayAgain.isHidden = false
-            p2PlayAgain.isHidden = false
+            if game.player2.aI == false {
+                p2PlayAgain.isHidden = false
+            }
             p1Draws.text = "\(game.player1.draws) Draws"
             p2Draws.text = "\(game.player2.draws) Draws"
             
@@ -258,21 +282,24 @@ class ViewController: UIViewController {
         p2Wins.text = "\(game.player2.wins) wins"
         p2Draws.text = "\(game.player2.draws) Draws"
         p2PlayAgain.setTitleColor(getPlayerColor(player: game.player2), for: UIControl.State.normal)
+        
         if game.player1.nr == game.currentPlayer.nr {
             p1Label.text = "Your turn!"
-            p2Label.text = "Opponent's turn"
+            p2Label.text = "\(game.currentPlayer.name)'s turn"
         }else{
-            p1Label.text = "Opponent's turn"
+            p1Label.text = "\(game.currentPlayer.name)'s turn"
             p2Label.text = "Your turn!"
         }
         
-        if game.win == false {
-            p1PlayAgain.isHidden = true
-            p2PlayAgain.isHidden = true
-        }else{
-            p1PlayAgain.isHidden = false
-            p2PlayAgain.isHidden = false
+        if game.win == true {
+            if game.player1.aI == false {
+                p1PlayAgain.isHidden = false
+            }
+            if game.player2.aI == false {
+                p2PlayAgain.isHidden = false
+            }
         }
+        
         
     }
     
@@ -286,24 +313,31 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func playAgainPressed(_ sender: Any) {
-        if game.playAgain == 0 {
-            game.playAgain += 1
-        }else if game.playAgain == 1 {
-            game.anotherRound()
+    @IBAction func playAgainPressed(_ sender: UIButton) {
+        
+        if sender == p1PlayAgain {
+            p1PlayAgain.isHidden = true
+        }else if sender == p2PlayAgain {
+            p2PlayAgain.isHidden = true
+        }
+        
+        if game.playAgain == 1 || (game.player1.aI == true || game.player2.aI == true) {
+            anotherRound()
             resetButtons()
             setLabels()
+            p1PlayAgain.isHidden = true
+            p2PlayAgain.isHidden = true
+            
+        }else{
+            game.playAgain += 1
         }
+        
         
     }
     
-    @IBAction func swipeFromLeftEdge(_ sender: UIScreenEdgePanGestureRecognizer) {
-        print("swipe")
-        performSegue(withIdentifier: "unwindBackToSetup", sender: self)
-    }
+    
     
     @IBAction func backButton(_ sender: UIButton) {
-        print("Back button pressed")
         performSegue(withIdentifier: "unwindBackToSetup", sender: self)
     }
     

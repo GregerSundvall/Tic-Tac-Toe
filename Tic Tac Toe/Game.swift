@@ -12,6 +12,7 @@ class Game {
     var player1 : Player
     var player2 : Player
     var currentPlayer : Player
+    var notCurrentPlayer : Player
     var win = false
     var currentTurn = 1
     var playAgain = 0
@@ -28,8 +29,10 @@ class Game {
         let randomInt = Int.random(in: 1...100)
         if randomInt % 2 == 0 {
             currentPlayer = player1
+            notCurrentPlayer = player2
         }else{
             currentPlayer = player2
+            notCurrentPlayer = player1
         }
         
         
@@ -63,9 +66,12 @@ class Game {
         let randomInt = Int.random(in: 1...100)
         if randomInt % 2 == 0 {
             currentPlayer = player1
+            notCurrentPlayer = player2
         }else{
             currentPlayer = player2
+            notCurrentPlayer = player1
         }
+        
     }
     
     
@@ -147,9 +153,11 @@ class Game {
         currentTurn += 1
         if currentPlayer.nr == 1 {
             currentPlayer = player2
+            notCurrentPlayer = player1
             
         }else{
             currentPlayer = player1
+            notCurrentPlayer = player2
             
         }
     }
