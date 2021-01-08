@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var p2Wins: UILabel!
     @IBOutlet weak var p2PlayAgain: UIButton!
     @IBOutlet weak var p2Draws: UILabel!
+    @IBOutlet weak var turnUpsideDownButton: UIButton!
     
     var recievedP1Name = ""
     var recievedP1Ai = false
@@ -48,6 +49,7 @@ class ViewController: UIViewController {
         
         p1PlayAgain.isHidden = true
         p2PlayAgain.isHidden = true
+        turnUpsideDownButton.isHidden = true
         
         if game.player2.aI == true {
             p2Label.isHidden = true
@@ -65,9 +67,13 @@ class ViewController: UIViewController {
         
         p1PlayAgain.layer.cornerRadius = 8
         p2PlayAgain.layer.cornerRadius = 8
-        if game.player2.aI == false {
-        p2Background.transform = p2Background.transform.rotated(by: .pi)
+        
+        if (game.player1.aI == false) && (game.player2.aI == false) {
+            p2Background.transform = p2Background.transform.rotated(by: .pi)
+            turnUpsideDownButton.isHidden = false
         }
+        
+        
         
         setLabels()
         
@@ -107,7 +113,6 @@ class ViewController: UIViewController {
     }
     
     func anotherRound() {
-        print("another round run")
         game.anotherRound()
         setLabels()
         //DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -335,6 +340,10 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func turnUpperBoxUpsideDown(_ sender: Any) {
+        p2Background.transform = p2Background.transform.rotated(by: .pi)
+
+    }
     
     
     @IBAction func backButton(_ sender: UIButton) {

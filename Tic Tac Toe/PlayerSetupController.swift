@@ -30,13 +30,19 @@ class PlayerSetupController: UIViewController, UIColorPickerViewControllerDelega
         
         hideKeyboardOnTap()
         
+        
         p1Name.autocapitalizationType = .words
         p2Name.autocapitalizationType = .words
         p1ColorButton.layer.cornerRadius = 5
         p2ColorButton.layer.cornerRadius = 5
         startGameButton.layer.cornerRadius = 5
         
-        
+        let attributes = [ NSAttributedString.Key.foregroundColor : UIColor.black,
+                           NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)];
+        let attributesSelected = [ NSAttributedString.Key.foregroundColor : UIColor.black,
+                                   NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)];
+        UISegmentedControl.appearance().setTitleTextAttributes(attributes, for: UIControl.State.normal)
+        UISegmentedControl.appearance().setTitleTextAttributes(attributesSelected, for: UIControl.State.selected)
         
     }
     

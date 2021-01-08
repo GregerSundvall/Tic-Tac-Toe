@@ -94,7 +94,6 @@ class Game {
         if board[position] == 0 {
             board[position] = currentPlayer.nr
             currentPlayer.positionsOwned.append(position)
-            print(board)
         }
     }
     
@@ -105,7 +104,6 @@ class Game {
         if  board[0] == cPNr && board[1] == cPNr && board[2] == cPNr {
             win = true
             currentPlayer.wins += 1
-            print("win")
         }else if board[3] == cPNr && board[4] == cPNr && board[5] == cPNr {
             win = true
             currentPlayer.wins += 1
