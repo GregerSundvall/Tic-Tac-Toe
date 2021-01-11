@@ -122,8 +122,7 @@ class PlayerSetupController: UIViewController, UIColorPickerViewControllerDelega
     }
     
     @IBAction func unwindToSetupView(segue: UIStoryboardSegue) {
-        p1Name.text = ""
-        p2Name.text = ""
+        
     }
     
     
