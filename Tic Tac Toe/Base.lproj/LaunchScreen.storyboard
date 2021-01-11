@@ -16,18 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="this is Tic tac toe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aly-hm-1Tc">
-                                <rect key="frame" x="65.5" y="224" width="283" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" red="0.0" green="0.29681864479999998" blue="0.29409397300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TicTacToeAppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7yq-Ai-t5E">
+                                <rect key="frame" x="50" y="-64" width="314" height="1024"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Aly-hm-1Tc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ltz-nf-IGy"/>
-                            <constraint firstItem="Aly-hm-1Tc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-200" id="MJL-e9-ihV"/>
+                            <constraint firstItem="7yq-Ai-t5E" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="50" id="d1x-lC-WOk"/>
+                            <constraint firstAttribute="trailing" secondItem="7yq-Ai-t5E" secondAttribute="trailing" constant="50" id="iI3-i2-HC6"/>
+                            <constraint firstItem="7yq-Ai-t5E" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ogu-PQ-Avi"/>
+                            <constraint firstItem="7yq-Ai-t5E" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="v4W-8i-G3o"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,6 +36,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="TicTacToeAppIcon" width="1024" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
