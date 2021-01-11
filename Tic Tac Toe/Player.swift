@@ -70,8 +70,10 @@ class Player {
         }
         
         if turn >= 4 {
+            if (turn == 4) && ((p0 == opp) && (p8 == opp) || (p2 == opp) && (p6 == opp)) {
+                position = 1
             //Check for own potential 3-in-a-rows
-            if p0 == self.nr && p1 == self.nr && p2 == 0 {
+            }else if p0 == self.nr && p1 == self.nr && p2 == 0 {
                 position = 2
             }else if p0 == self.nr && p1 == 0 && p2 == self.nr {
                 position = 1
