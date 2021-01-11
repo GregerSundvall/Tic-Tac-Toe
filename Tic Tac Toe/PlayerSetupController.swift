@@ -138,6 +138,9 @@ class PlayerSetupController: UIViewController, UIColorPickerViewControllerDelega
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
         //view controller closed
     }
+    @IBAction func hideKeyboardOnEnter(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
     
 }
    

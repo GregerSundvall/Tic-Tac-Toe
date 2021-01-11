@@ -27,7 +27,7 @@
                                                 <subviews>
                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="waj-Nb-hKZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="150" height="33"/>
-                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="150" id="PFz-nk-DbC"/>
                                                             <constraint firstAttribute="height" constant="32" id="kef-Nv-YTD"/>
@@ -38,7 +38,7 @@
                                                         </segments>
                                                         <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </segmentedControl>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Upper player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aeS-Cg-elj">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Second player name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="aeS-Cg-elj">
                                                         <rect key="frame" x="0.0" y="52.000000000000014" width="150" height="32"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -47,7 +47,11 @@
                                                         </constraints>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done"/>
+                                                        <connections>
+                                                            <action selector="hideKeyboardOnEnter:" destination="BAp-2D-nJ0" eventType="editingDidEndOnExit" id="6dX-48-k50"/>
+                                                            <action selector="hideKeyboardOnEnter:" destination="BAp-2D-nJ0" eventType="editingDidEnd" id="AzV-LU-sv3"/>
+                                                        </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idz-qG-Ye9">
                                                         <rect key="frame" x="0.0" y="104.00000000000001" width="150" height="31.999999999999986"/>
@@ -83,7 +87,7 @@
                                                 <subviews>
                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AJ6-8d-Hki">
                                                         <rect key="frame" x="0.0" y="0.0" width="150" height="33"/>
-                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="kkm-yR-ieP"/>
                                                             <constraint firstAttribute="width" constant="150" id="nRY-uZ-Jkq"/>
@@ -94,7 +98,7 @@
                                                         </segments>
                                                         <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </segmentedControl>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lower player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iiw-n6-H4L">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First player name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Iiw-n6-H4L">
                                                         <rect key="frame" x="0.0" y="62" width="150" height="32"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -103,7 +107,11 @@
                                                         </constraints>
                                                         <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done"/>
+                                                        <connections>
+                                                            <action selector="hideKeyboardOnEnter:" destination="BAp-2D-nJ0" eventType="editingDidEndOnExit" id="Y3c-A1-pNk"/>
+                                                            <action selector="hideKeyboardOnEnter:" destination="BAp-2D-nJ0" eventType="editingDidEnd" id="adH-sn-asx"/>
+                                                        </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6A4-JP-h2V">
                                                         <rect key="frame" x="0.0" y="124" width="150" height="32"/>
@@ -135,14 +143,15 @@
                                         <rect key="frame" x="0.0" y="520.66666666666663" width="360" height="210.33333333333337"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxg-jP-xTy">
-                                                <rect key="frame" x="120" y="45" width="120" height="36"/>
-                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <rect key="frame" x="120" y="3" width="120" height="36"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="XOi-Js-eXh"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Start game">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" systemColor="linkColor"/>
+                                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="startGameButton:" destination="BAp-2D-nJ0" eventType="touchUpInside" id="QB7-9x-B06"/>
@@ -153,7 +162,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="xxg-jP-xTy" firstAttribute="centerX" secondItem="MC8-iN-zeo" secondAttribute="centerX" id="Dk8-bm-wTu"/>
-                                            <constraint firstItem="xxg-jP-xTy" firstAttribute="centerY" secondItem="MC8-iN-zeo" secondAttribute="centerY" multiplier="0.6" id="hxX-qY-LNS"/>
+                                            <constraint firstItem="xxg-jP-xTy" firstAttribute="centerY" secondItem="MC8-iN-zeo" secondAttribute="centerY" multiplier="0.2" id="hxX-qY-LNS"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -612,6 +621,9 @@
     </scenes>
     <resources>
         <image name="arrow.triangle.2.circlepath.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
